@@ -1,0 +1,186 @@
+# EASY
+# Задача 1:
+
+список фруктов = ['яблоко', 'манго', 'апельсин', 'арбуз']
+count = 0
+for i in список фруктов:
+    count += 1
+    print(f"{count}.", f"{i:>10}")
+
+
+
+
+    # Задача 2:
+
+wordsOne = ['Ручка', 'Тетрадка', 'Берн', 'Берн2']
+wordsTwo = ['Apple', 'Mac', 'Android', 'Safari']
+
+for I in wordsOne:
+    if I in wordsTwo:
+        wordsOne.remove(I)
+
+print(wordsOne)
+print(wordsTwo)
+
+# Задача 3:
+
+numbersList = [1, 123, 1.3, 100, 30, 600, 21, 75, 30]
+
+numbersNew = []
+
+for N in numbersList:
+    if N % 2 == 0:
+        N /= 4
+        numbersNew.append(N)
+    else:
+        N *= 2
+        numbersNew.append(N)
+
+print(numbersNew)
+
+# NORMAL
+# Задача 1:
+import math
+
+numbers = [2, -5, 8, 9, -25, 25, 4]
+numbersRoots = []
+
+for r in numbers:
+    r = math.sqrt(r)
+    if r // 1 == r:
+        numbersRoots.append(r)
+print(numbersRoots)
+
+# Задача 2:
+
+days = {
+    "01": 'первое',
+    "02": 'второе',
+    "03": 'третье',
+    "04": 'четвертое',
+    "05": 'пятое',
+    "06": 'шестое',
+    "07": 'седьмое',
+    "08": 'восьмое',
+    "09": 'девятое',
+    "10": 'десятоое',
+    "11": 'одинадцатое',
+    "12": 'двенадцатое',
+    "13": 'тринадцатое',
+    "14": 'четырнадцатое',
+    "15": 'пятнадцатое',
+    "16": 'шестнадцатое',
+    "17": 'семнадцатое',
+    "18": 'восемнадцатое',
+    "19": 'девятнадцатое',
+    "20": 'двадцатое',
+    "21": 'двадцать первое',
+    "22": 'двадцать второе',
+    "23": 'двадцать третье',
+    "24": 'двадцать четвертое',
+    "25": 'двадцать пятое',
+    "26": 'двадцать шестое',
+    "27": 'двадцать седьмое',
+    "28": 'двадцать восьмое',
+    "29": 'двадцать девятое',
+    "30": 'тридцатое',
+    "31": 'тридцать первое'
+
+}
+
+monts = {
+    "01": 'января',
+    "02": 'февраля',
+    "03": 'марта',
+    "04": 'апреля',
+    "05": 'мая',
+    "06": 'июня',
+    "07": 'июля',
+    "08": 'августа',
+    "09": 'сентября',
+    "10": 'октября',
+    "11": 'ноября',
+    "12": 'декабря'
+}
+
+date = input("Введите дату: (dd.mm.yyyy)")
+date = date.split(".")
+
+print(days[date[0]], monts[date[1]], date[2], 'года')
+
+# Задача 3:
+import random
+
+randomNumbers = []
+numLen = int(input('Введите количество чисел в списке: '))
+nL = 0
+
+while nL < numLen:
+    randomNumbers.append(random.randint(-100, 100))
+    nL += 1
+
+print(randomNumbers)
+
+HARD
+
+# Задача 1:
+
+import string
+
+text = input("Введите текст: ")
+text = text.lower()
+
+engAlph = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+           'w', 'x', 'y', 'z']
+
+for puncts in string.punctuation:
+    while puncts in text:
+        text = text.replace(puncts, "")
+
+text = text.split(" ")
+
+wordsCount = 0
+
+for word in text:
+    wordsCount += 1
+
+text = (f"{text}")
+
+for punct in string.punctuation + " ":
+    while punct in text:
+        text = text.replace(punct, "")
+
+lettersCount = 0
+
+for i in text:
+    if i in engAlph:
+        lettersCount += 1
+
+print("В тексте ", wordsCount, ' слов и ', lettersCount, " английских букв")
+
+# Задача 2:
+
+import string
+
+textOne = input("Введите текст: ")
+textTwo = input("Введите текст: ")
+
+textOne = textOne.lower()
+textTwo = textTwo.lower()
+
+for punct1 in string.punctuation:
+    while punct1 in textOne:
+        textOne = textOne.replace(punct1, "")
+    while punct1 in textTwo:
+        textTwo = textTwo.replace(punct1, "")
+
+textOne = textOne.split(" ")
+textTwo = textTwo.split(" ")
+
+wordsSim = []
+
+for W in textOne:
+    if W in textTwo:
+        wordsSim.append(W)
+
+print(wordsSim)
