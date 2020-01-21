@@ -1,0 +1,33 @@
+temp = None
+x = input("Введите значение X:")
+y = input("Введите значение Y:")
+
+temp = x
+x = y
+y = temp
+print(f"Меняем значения переменных, получаем: X - {x} и Y - {y}")
+
+
+time = int(input("Ввести время в секундах: "))
+hours = time // 3600
+minutes = (time // 60) - (hours * 60)
+seconds = time % 60
+print(f"{hours:02}:{minutes:02}:{seconds:02}")
+
+
+n = input("Enter an integer:")
+print(f{n} + {n + n} + {n + n + n} = {int(n) + int(n + n) + int(n + n + n)}")
+
+
+num_init = int(input("enter a positive integer"))
+greatest_dig = 0 
+num = num_init
+
+while num > 0:
+    digit = num % 10
+    if digit > greatest_dig:
+        greatest_dig = digit
+        if greatest_dig == 9:
+            break
+    num = num // 10
+print(f"Highest number somewhere {num_init} equals {geatest_dig})
