@@ -1,0 +1,60 @@
+1. Создать программно файл в текстовом формате, записать в него построчно данные, вводимые пользователем. Об окончании ввода данных свидетельствует пустая строка.
+
+file = open("test.txt", "w")
+value = input("Please enter the value")
+while value:
+      file.writelines(value)
+      value = input("Please enter the value")
+      if not value:
+         break
+
+file.close()
+file = open("test.txt", "r")
+txt = file.readlines()
+print(txt)
+file.close()
+
+2. Создать текстовый файл (не программно), сохранить в нем несколько строк, выполнить подсчет количества строк, количества слов в каждой строке.
+
+file = open("test.txt", "r")
+txt = file.read()
+print(f"Содержимое файла: {txt}")
+file = open("test.txt", "r")
+txt = file.readlines()
+print(f"Количество строк в файле: {len(txt)}")
+file = open("test.txt", "r")
+txt = file.readlines()
+for v in range(len(txt)):
+     print(f"Количество символов {v + 1}-ой строки: {len(txt[v])}")
+file = open("test.txt", "r")
+txt = file.read()
+txt = txt.split()
+print(f"Общее количество слов: {len(txt)}")
+file.close()
+
+3. Создать текстовый файл (не программно), построчно записать фамилии сотрудников и величину их окладов. Определить, кто из сотрудников имеет оклад менее 20 тыс., вывести фамилии этих сотрудников. Выполнить подсчет средней величины дохода сотрудников.
+
+with open("test.txt", "r") as file:
+    salary = []
+    salary_2 = []
+    list1 = file.read().split("\n")
+    for v in list1:
+        v = v.split()
+        if int(v[1]) < 20000:
+            salary_2.append(v[0])
+        salary.append(v[1])
+print(f"Оклад менее 20.000 {salary_2}, средний оклад {sum(map(int, salary)) / len(salary)}")
+
+4. Создать (не программно) текстовый файл со следующим содержимым:
+
+One — 1
+
+Two — 2
+
+Three — 3
+
+Four — 4
+
+Необходимо написать программу, открывающую файл на чтение и считывающую построчно данные. При этом английские числительные должны заменяться на русские. Новый блок строк должен записываться в новый текстовый файл.
+
+
