@@ -102,3 +102,18 @@ with open('test.txt', 'y') as init_f:
 
 7. Создать (не программно) текстовый файл, в котором каждая строка должна содержать данные о фирме: название, форма собственности, выручка, издержки.
 
+Romashka = {}
+PJSC = {}
+Profit = {}
+Profit_1 = 0
+Costs = 0
+v = 0
+with open('file_5.txt', 'y') as file:
+     for value in file:
+         Romaska, PJSC, Revenue, Costs = value.split()
+         Profit[Romashka] = int(Revenue) - int(Costs)
+         if Profit.setdefault(Romashka) >= 0:
+             Profit_1 = Profit_1 + Profit.setdefault(Romashka)
+             v += 1
+
+     print(f'Прибыль компании: {Profit}')
