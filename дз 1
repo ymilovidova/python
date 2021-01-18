@@ -1,0 +1,162 @@
+1)Выполнить логические побитовые операции “И”, “ИЛИ” и др. Над числами 5 и 6. Выполнить над числом 5 побитовый сдвиг вправо и влево на два знака
+
+num = int(input('Введите целое число: '))
+ans = input('Перевести в байты - "b", в килобайты - "k"')
+
+if ans == 'b':
+    print(f'{num} Кб = {num * 1024} байт')
+elif ans == 'k':
+    print(f'{num} байт = {num / 1024} Кб')
+else:
+    print('Неверный ввод')
+
+
+2)
+По введенным пользователем координатам двух точек вывести уравнение прямой, которая проходит через эти точки
+
+var     
+        x1,y1,x2,y2: real;
+        k, b: real;
+ 
+begin
+        write('A(x1;y1): '); readln(x1, y1);
+        write('B(x2;y2): '); readln(x2, y2);
+ 
+        k := (y1 - y2) / (x1 - x2);
+        b := y2 - k * x2;
+ 
+        writeln('y = ',k:0:2,'x + ',b:0:2);
+end
+
+3)
+
+var
+    min_i, max_i, n_i: integer;
+    min_f, max_f, n_f: real;
+    first_c, last_c: char;
+    min_c, max_c, n_c: byte;    
+begin
+    randomize;
+    write('Minimum integer: ');
+    readln(min_i);
+    write('Maximum integer: ');
+    readln(max_i);
+    n_i := random(max_i-min_i+1) + min_i;
+    writeln(n_i);
+ 
+    write('Minimum float: ');
+    readln(min_f);
+    write('Maximum float: ');
+    readln(max_f);
+    n_f := random() * (max_f-min_f) + min_f;
+    writeln(n_f:5:2);
+ 
+    write('First char: ');
+    readln(first_c);
+    write('Last char: ');
+    readln(last_c);
+    min_c := ord(first_c);
+    max_c := ord(last_c);
+    n_c := random(max_c-min_c+1) + min_c;
+    writeln(chr(n_c));
+end
+
+4)Пользователь вводит буквы. Определить их порядковый номер в алфавите и рассчитать число букв между ними
+
+write('Буква 1: '); readln(a);
+    write('Буква 2: '); readln(b);
+    an := ord(a);
+    bn := ord(b);
+    writeln('Позиция 1: ', an-ord('a')+1);
+    writeln('Позиция 2: ', bn-ord('a')+1);
+    n := abs(bn-an)-1;
+    writeln('Количество букв между ними: ', n);
+    writeln;
+    write('Позиция буквы в алфавите: '); readln(n);
+    n := n+ord('a')-1;
+    writeln('Это буква - ', chr(n));
+
+5)Пользователь вводит номер буквы в алфавите. Определить какая это буква.
+
+  write('Буква 1: '); readln(a);
+    write('Буква 2: '); readln(b);
+    an := ord(a);
+    bn := ord(b);
+    writeln('Позиция 1: ', an-ord('a')+1);
+    writeln('Позиция 2: ', bn-ord('a')+1);
+    n := abs(bn-an)-1;
+    writeln('Количество букв между ними: ', n);
+    writeln;
+    write('Позиция буквы в алфавите: '); readln(n);
+    n := n+ord('a')-1;
+    writeln('Это буква - ', chr(n))
+
+
+6. По введенным пользователем длинам трех отрезков определить, можно ли составить из этих отрезков треугольник. Если да, определить, будет ли треугольник разносторонним, равнобедренным или равносторонним.
+
+var
+    a,b,c: word;
+ 
+begin
+    write('a='); readln(a);
+    write('b='); readln(b);
+    write('c='); readln(c);
+    if (a+b <= c) or (a+c <= b) or (b+c <= a) then
+        writeln('Такой треугольник не существует.')
+    else
+        if (a <> b) and (a <> c) and (b <> c) then
+            writeln('Это разносторонний треугольник.')
+        else
+            if (a = b) and (b = c) then
+                writeln('Это равносторонний треугольник.')
+            else
+                writeln('Это равнобедренный треугольник.');
+end.
+
+
+
+7. Определить является ли введенный пользователем год високосным или нет
+
+// 1-й вариант:
+
+var y: word;
+begin
+    readln(y);
+    if y mod 4 <> 0 then writeln('Обычный')
+    else
+        if y mod 100 = 0 then
+            if y mod 400 = 0 then writeln('Високосный')
+            else writeln('Обычный')
+        else writeln('Високосный');
+end.
+
+// 2-й вариант:
+
+var y: word;
+begin
+    readln(y);
+    if (y mod 4 <> 0) or (y mod 100 = 0) and (y mod 400 <> 0) then 
+        writeln('Обычный')
+    else 
+        writeln('Високосный');
+end.
+
+
+
+8. Вводятся три разных числа. Найти какое из них является средним (больше одного, но меньше другого)
+var
+    a1, a2, a3: integer;
+ 
+begin
+    write ('Введите три числа: ');
+    readln (a1, a2, a3);
+ 
+    if ((a1 > a2) and (a1 < a3)) or ((a1 < a2) and (a1 > a3)) then
+        writeln(a1)
+    else
+        if ((a2 > a1) and (a2 < a3)) or ((a2 < a1) and (a2 > a3)) then
+            writeln(a2)
+        else
+            writeln(a3);
+ 
+end.
